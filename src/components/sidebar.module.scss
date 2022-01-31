@@ -199,3 +199,18 @@
     }
   }
 }
+
+@media print {
+  .sidebar_part {
+    color: var(--color-text);
+
+    section header {
+      color: var(--color-primary);
+    }
+  }
+
+  .sidebar_background {
+    background-color: unset;
+    // border-right-color: color($colors, primary);
+  }
+}

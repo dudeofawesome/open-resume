@@ -79,72 +79,6 @@ address {
   html {
     background-color: var(--color-paper-background);
   }
-
-  // .sidebar-part {
-  //   color: color-contrast($colors, primary-muted);
-  //   background-color: color($colors, primary-muted);
-  // }
-
-  // .name {
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-
-  //   margin: 0;
-  //   padding: 1rem 0;
-  //   z-index: 2;
-
-  //   text-align: center;
-
-  //   color: color-contrast($colors, primary-muted);
-  //   background-color: color($colors, primary-muted);
-
-  //   &.small-header {
-  //     left: -1rem;
-  //     right: -1rem;
-
-  //     border-bottom: solid color($colors, primary) 1rem;
-
-  //     @include shadow-depth(3);
-
-  //     transition: box-shadow $transition-speed;
-  //   }
-  // }
-
-  // #sidebar-contact {
-  //   flex-flow: row wrap;
-  //   justify-content: center;
-
-  //   padding-left: 1rem;
-  //   padding-right: 1rem;
-
-  //   > * {
-  //     padding: 0.3125rem 0.9375rem;
-  //     flex-direction: row-reverse;
-  //     text-align: left;
-  //     text-align: start;
-
-  //     .mdi {
-  //       margin-left: 0;
-  //       margin-right: 0.5rem;
-  //     }
-  //   }
-  // }
-
-  // #sidebar-info {
-  //   border-bottom: solid color($colors, primary) 0.5rem;
-
-  //   .footer {
-  //     flex-flow: row wrap;
-  //     justify-content: center;
-  //     align-items: center;
-  //   }
-  // }
-
-  // .content {
-  //   padding: 1rem 0.5rem;
-  // }
 }
 
 @media screen and (max-width: $small-large-break) and (prefers-color-scheme: dark) {
@@ -153,14 +87,28 @@ address {
   }
 }
 
-// @media screen and (max-width: 22rem) {
-//   .sidebar {
-//     .contact {
-//       justify-content: flex-start;
+@media print {
+  @page {
+    margin: 0 !important;
+    size: letter portrait;
+    marks: none;
+  }
 
-//       > * {
-//         flex-grow: 1;
-//       }
-//     }
-//   }
-// }
+  html {
+    color-adjust: exact;
+  }
+
+  html,
+  body {
+    background-color: unset;
+  }
+
+  .print-only {
+    display: initial;
+    display: unset;
+  }
+
+  .no-print {
+    display: none;
+  }
+}

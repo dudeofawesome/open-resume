@@ -39,7 +39,10 @@ export const Content: FC<ResumeData> = props => {
         </section>
       ))}
 
-      <Skills className="small-screen-only" {...props} />
+      <Skills
+        className={['small-screen-only', 'no-print'].join(' ')}
+        {...props}
+      />
     </div>
   );
 };

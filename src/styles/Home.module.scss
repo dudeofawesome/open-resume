@@ -51,10 +51,13 @@
 
 @media screen {
   .main {
-    // max-width: $max-page-width;
     max-width: var(--max-page-width);
 
     margin: 0 auto;
+  }
+
+  .print-only {
+    display: none !important;
   }
 }
 
@@ -81,5 +84,11 @@
     > :nth-child(2) {
       padding-top: 4.5rem;
     }
+  }
+}
+
+@media print {
+  .main {
+    min-height: 100%;
   }
 }
