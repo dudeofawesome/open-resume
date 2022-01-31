@@ -14,7 +14,7 @@ export const data: ResumeData = {
       on developing scalable and well documented code. I enjoy working
       collaboratively but can also run with projects on my own. Excited about
       the prospect of joining a product-driven company like yours.`,
-    image_url: '/public/assets/icon.svg',
+    image_url: '/icon.svg',
     email: 'louis@orleans.io',
     phone: '714.386.9047',
     location: 'Brea, California',
