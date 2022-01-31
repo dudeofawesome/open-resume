@@ -1,12 +1,4 @@
-import {
-  FC,
-  RefObject,
-  UIEventHandler,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { FC, RefObject, useMemo, useRef } from 'react';
 
 import { ResumeData } from '../data';
 import { useMediaQuery, useScrollPos } from '../hooks';
@@ -33,7 +25,7 @@ export const Header: FC<
             window.getComputedStyle(props.info_ref.current).borderBottomWidth,
           )
         : 0,
-    [props.info_ref.current],
+    [props.info_ref],
   );
 
   const is_scrolled_down =

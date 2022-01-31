@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       );
     c.dark_background != null &&
       style.setProperty('--color-dark-background', c.dark_background);
-  }, [data.theme.colors]);
+  }, []);
 
   return <Component {...pageProps} />;
 }
