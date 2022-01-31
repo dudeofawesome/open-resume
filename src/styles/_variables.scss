@@ -1,0 +1,19 @@
+$transition-speed: 0.25s;
+$max-page-width: 8.5in;
+
+@mixin css-vars() {
+  --color-primary: hsl(0, 100%, 41.2%);
+  --color-primary-muted: hsl(0, 100%, 28.6%);
+  --color-text: hsl(0, 0%, 0%);
+  --color-text-dim: hsl(0, 0%, 40%);
+  --color-paper-background: hsl(0, 0%, 100%);
+  --color-background: hsl(200, 5.9%, 10%);
+
+  --color-dark-text: hsl(33.3, 9.9%, 100%);
+  --color-dark-text-dim: hsl(33.3, 9.9%, 82.2%);
+  --color-dark-paper-background: hsl(0, 0%, 19.6%);
+  --color-dark-background: hsl(200, 5.9%, 10%);
+
+  --max-page-width: #{$max-page-width};
+  --transition-speed: #{$transition-speed};
+}

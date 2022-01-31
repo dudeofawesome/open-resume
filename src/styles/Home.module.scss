@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'functions';
+
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 12rem auto 0;
+  grid-template-rows: 2rem auto auto 0;
+  gap: 1rem 0.5rem;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  margin: 0;
+
+  background-color: var(--color-paper-background);
+
+  font-size: 0.85rem;
+
+  > header {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  > .content {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}
+
+.name {
+  font-family: 'Playfair Display', Cambria, Cochin, Times, 'Times New Roman',
+    serif;
+  font-size: 3rem;
+  font-weight: 534;
+  line-height: 83%;
+
+  &,
+  &.name-container {
+    transform-origin: center top;
+    margin-bottom: 1rem;
+
+    will-change: transform;
+  }
+}
+
+@media screen {
+  .main {
+    // max-width: $max-page-width;
+    max-width: var(--max-page-width);
+
+    margin: 0 auto;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .main {
+    background-color: var(--color-dark-paper-background);
+  }
+}
+
+@media screen and (min-width: calc(#{$max-page-width} + 1px)) {
+  .main {
+    margin: 1rem auto;
+
+    @include shadow-depth(3);
+  }
+}

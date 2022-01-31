@@ -1,0 +1,32 @@
+.header {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.name {
+  font-family: 'Playfair Display', Cambria, Cochin, Times, 'Times New Roman',
+    serif;
+  font-size: 3rem;
+  font-weight: 534;
+  line-height: 83%;
+
+  &,
+  &.name-container {
+    transform-origin: center top;
+    margin-bottom: 1rem;
+
+    will-change: transform;
+  }
+}
+
+.description {
+  .summary {
+    font-weight: bold;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .header {
+    color: var(--color-dark-text);
+  }
+}

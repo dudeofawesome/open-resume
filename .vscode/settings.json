@@ -1,0 +1,25 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "json.schemas": [
+    {
+      "fileMatch": ["tsconfig.*.json"],
+      "url": "http://json.schemastore.org/tsconfig"
+    },
+    {
+      "fileMatch": ["manifest.yaml"],
+      "url": "http://json.schemastore.org/web-manifest"
+    }
+  ],
+
+  "files.associations": {
+    ".env": "dotenv",
+    "*.travis": "yaml",
+    "*.mustache": "handlebars",
+    "*.yaml.mustache": "yaml"
+  },
+  "cSpell.words": [
+    "devtool",
+    "prerendered"
+  ]
+}

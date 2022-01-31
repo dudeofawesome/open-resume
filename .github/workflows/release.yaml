@@ -1,0 +1,40 @@
+name: 'Build and Deploy Webpage'
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build-and-deploy:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+      - name: 'Checkout 🛎️'
+        uses: 'actions/checkout@v2' # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      - uses: 'actions/setup-node@v1'
+        with:
+          node-version: '10.x'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: 'Install Packages'
+        run: 'yarn install'
+      - name: 'Build'
+        run: 'NODE_ENV=production yarn run build'
+      - name: 'Test'
+        run: 'yarn run test'
+      - name: 'Render PDF'
+        run: './scripts/cd/render-pdf.rb'
+      - name: 'Deploy to AWS'
+        uses: 'reggionick/s3-deploy@v3'
+        if: "(startsWith(github.ref_name, 'main') || startsWith(github.ref_name, 'master'))"
+        with:
+          folder: 'build'
+          bucket: '${{ secrets.AWS_S3_PROD_BUCKET }}'
+          bucket-region: '${{ secrets.AWS_S3_BUCKET_REGION }}'
+          dist-id: '${{ secrets.AWS_CLOUDFRONT_PROD_DISTRIBUTION_ID }}'
+          delete-removed: yes
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_SECRET }}

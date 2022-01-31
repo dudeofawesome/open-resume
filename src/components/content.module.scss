@@ -1,0 +1,85 @@
+@use 'sass:math';
+@import '../styles/variables';
+
+.content {
+  grid-column: 2;
+  grid-row: 3;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .item {
+      ul.description li {
+        position: relative;
+
+        &::before {
+          $bullet-size: 0.25rem;
+
+          content: ' ';
+          display: block;
+          position: absolute;
+          top: 0.5rem;
+          left: -1rem;
+          width: $bullet-size;
+          height: $bullet-size;
+          border-radius: math.div($bullet-size, 2);
+          background-color: var(--color-text);
+        }
+      }
+
+      .description {
+        margin-top: 0.1rem;
+        margin-left: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .title_line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      font-weight: 700;
+    }
+
+    .location_duration {
+      color: var(--color-text-dim);
+    }
+  }
+
+  header {
+    margin-bottom: 0.3rem;
+
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .content {
+    color: var(--color-dark-text);
+
+    a {
+      color: var(--color-dark-text);
+    }
+
+    .title_line .location_duration {
+      color: var(--color-dark-text-dim);
+    }
+
+    ul .item ul.description li::before {
+      background-color: var(--color-dark-text);
+    }
+  }
+}
+
+@media (max-width: $max-page-width) {
+  .resume {
+    min-height: 100%;
+  }
+}

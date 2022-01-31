@@ -1,0 +1,100 @@
+@use 'sass:math';
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function polynomial($x, $coefficients) {
+  @if type-of($coefficients) == list {
+    $value: 0;
+
+    @for $i from 1 through (length($coefficients)) {
+      $value: $value +
+        nth($coefficients, $i) *
+        pow($x, length($coefficients) - $i);
+    }
+
+    @return $value;
+  } @else {
+    @debug '$coefficients is not a list';
+
+    @return 0;
+  }
+}
+
+@function offset-y-1($z) {
+  // @return polynomial($z, (
+  //   0.025, -0.125, -0.373, 3.12, -3.644, 2.997
+  // )) * 1px;
+  @return (0.4 * pow($z + 0.9, 2) + 0.2) * 1px;
+}
+
+@function offset-y-2($z) {
+  @return polynomial($z, (-0.015, 0.1, 0.308, -3, 5.806, -2.2)) * 1px;
+  // @return (0.1 * sinh($z - 0.5) + 0.7) * 1px;
+}
+
+@function offset-y-3($z) {
+  @return polynomial($z, (0.005021, -0.034, -0.157, 2.329, -6.541, 7.397)) * 1px;
+}
+
+@function blur-radius-1($z) {
+  // TODO: Improve
+  // @return polynomial($z, (
+  //   0.121, -0.728, -1.738, 18.753, -33.921, 19.513
+  // )) * 1px;
+  @return (pow(math.div($z, 1.1), 2) + 1) * 1px;
+}
+
+@function blur-radius-2($z) {
+  // TODO: Improve
+  @return polynomial($z, (0.218, -1.319, -3.513, 35.886, -65.056, 38.784)) * 1px;
+}
+
+@function blur-radius-3($z) {
+  // TODO: Improve
+  @return polynomial($z, (0.02, -0.095, -0.2, 0.748, 2.95, -2.423)) * 1px;
+}
+
+@function spread-radius-1($z) {
+  // TODO: Improve
+  @return polynomial($z, (-0.009787, 0.063, 0.168, -1.715, 3.318, -1.826)) * 1px;
+}
+
+@function spread-radius-2($z) {
+  // TODO: Improve
+  // @return polynomial($z, (
+  //   -0.015, 0.1, 0.308, -3, 5.806, -3.2
+  // )) * 1px;
+  @return (pow(2, 1.7 * $z - 6)) * 1px;
+}
+
+@function spread-radius-3($z) {
+  // TODO: Improve
+  @return polynomial($z, (0.014, -0.083, -0.24, 1.759, -1.789, -1.662)) * 1px;
+}
+
+@function alpha-3($z) {
+  // TODO: Improve
+  @return polynomial(
+    $z,
+    (-0.0005996, 0.004827, 0.00731, -0.161, 0.477, -0.128)
+  );
+}
+
+@mixin shadow-depth($depth) {
+  box-shadow: 0 offset-y-1($depth) blur-radius-1($depth) spread-radius-1($depth)
+      rgba(0, 0, 0, 0.14),
+    0 offset-y-2($depth) blur-radius-2($depth) spread-radius-2($depth)
+      rgba(0, 0, 0, 0.12),
+    0 offset-y-3($depth) blur-radius-3($depth) spread-radius-3($depth)
+      rgba(0, 0, 0, alpha-3($depth));
+}
