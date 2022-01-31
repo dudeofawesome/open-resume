@@ -17,10 +17,13 @@ else
   throw "Unknown platform #{RUBY_PLATFORM}"
 end
 
+# ensure public dir exists
+Dir.mkdir('public') if !Dir.exist?('public')
+
 begin
-  `node_modules/.bin/chrome-headless-render-pdf --chrome-binary "#{chrome_path}" --chrome-option '--no-sandbox' --url "http://localhost:3000" --pdf "public/Louis Orleans' Résumé.pdf" --no-margins`
+  `chrome-headless-render-pdf --chrome-binary "#{chrome_path}" --chrome-option '--no-sandbox' --url "http://localhost:3000" --pdf "public/Louis Orleans' Résumé.pdf" --no-margins`
 rescue
-  exit 1
+  throw 'Failed to render PDF!'
 end
 
 puts '[STOP HTTP SERVER]'
