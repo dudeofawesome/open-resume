@@ -15,6 +15,10 @@
     background-color: var(--color-background);
   }
 
+  a:hover {
+    color: var(--color-dark-text-dim);
+  }
+
   section {
     font-size: 0.9rem;
 

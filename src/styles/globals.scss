@@ -55,6 +55,10 @@ address {
   html {
     background-color: var(--colors-background-dark);
   }
+
+  a:hover {
+    color: var(--color-dark-text-dim);
+  }
 }
 
 @media screen and (min-width: $small-large-break) {
