@@ -7,7 +7,7 @@ export const Skills: FC<ResumeData & { className?: string }> = props => {
   const sections: ReactElement[] = [];
   if (props.skills != null) {
     sections.push(
-      <section className={[styles.skills, props.className].join(' ')}>
+      <section key={0} className={[styles.skills, props.className].join(' ')}>
         <header>Skills / Tools</header>
         <ul>
           {props.skills?.map((skill, i) => {
@@ -30,7 +30,7 @@ export const Skills: FC<ResumeData & { className?: string }> = props => {
 
   if (props.languages != null)
     sections.push(
-      <section className={[styles.skills, props.className].join(' ')}>
+      <section key={1} className={[styles.skills, props.className].join(' ')}>
         <header>Languages</header>
         <ul>
           {props.languages?.map((lang, i) =>
@@ -51,7 +51,10 @@ export const Skills: FC<ResumeData & { className?: string }> = props => {
 
   if (props.education != null)
     sections.push(
-      <section className={[styles.education, props.className].join(' ')}>
+      <section
+        key={2}
+        className={[styles.education, props.className].join(' ')}
+      >
         <header>Education</header>
         <ul>
           {props.education?.map((ed, i) => (

@@ -22,8 +22,8 @@ export const Content: FC<ResumeData> = props => {
                 {item.description != null &&
                   (Array.isArray(item.description) ? (
                     <ul className={styles.description}>
-                      {item.description.map(line => (
-                        <li>
+                      {item.description.map((line, i) => (
+                        <li key={i}>
                           <VerySimpleMD md={line} />
                         </li>
                       ))}
