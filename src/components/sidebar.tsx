@@ -11,7 +11,7 @@ export const Sidebar: FC<
   ResumeData & { info_ref: RefObject<HTMLDivElement> }
 > = props => {
   const gh_prof = data.about.profiles?.find(p => p.network === 'github');
-  const build_date = new Date().toISOString().split('T')[0];
+  const build_date = process.env.build_time?.split('T')[0] ?? 'Unknown Time';
 
   return (
     <>
