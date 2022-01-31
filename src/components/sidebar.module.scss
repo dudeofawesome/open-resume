@@ -167,3 +167,35 @@
     }
   }
 }
+
+@media screen and (max-width: $small-large-break) {
+  .sidebar_part {
+    color: var(--color-dark-text);
+    background-color: var(--color-primary-muted);
+  }
+
+  .sidebar_contact {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    > * {
+      flex-direction: row-reverse;
+
+      svg {
+        margin: -0.2rem 0.5rem -0.2rem 0;
+      }
+    }
+  }
+
+  .sidebar_info {
+    border-bottom: solid var(--color-primary) 0.5rem;
+
+    .footer {
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

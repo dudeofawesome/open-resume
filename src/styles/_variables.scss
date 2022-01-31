@@ -1,5 +1,6 @@
 $transition-speed: 0.25s;
 $max-page-width: 8.5in;
+$small-large-break: 35rem;
 
 @mixin css-vars() {
   --color-primary: hsl(0, 100%, 41.2%);
@@ -14,6 +15,7 @@ $max-page-width: 8.5in;
   --color-dark-paper-background: hsl(0, 0%, 19.6%);
   --color-dark-background: hsl(200, 5.9%, 10%);
 
-  --max-page-width: #{$max-page-width};
   --transition-speed: #{$transition-speed};
+  --max-page-width: #{$max-page-width};
+  --small-large-break: #{$small-large-break};
 }

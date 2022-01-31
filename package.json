@@ -1,5 +1,14 @@
 {
   "name": "resume",
+  "description": "A resume website generator",
+  "version": "0.4.0-alpha",
+  "license": "MIT",
+  "repository": "https://github.com/dudeofawesome/resume.git",
+  "author": {
+    "name": "Louis Orleans",
+    "email": "louis@orleans.io",
+    "url": "https://orleans.io"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

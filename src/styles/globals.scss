@@ -57,7 +57,7 @@ address {
   }
 }
 
-@media screen and (min-width: 35rem) {
+@media screen and (min-width: $small-large-break) {
   .large-screen-only {
     display: unset;
   }
@@ -67,7 +67,7 @@ address {
   }
 }
 
-@media screen and (max-width: 35rem) {
+@media screen and (max-width: $small-large-break) {
   .large-screen-only {
     display: none;
   }
@@ -76,15 +76,9 @@ address {
     display: unset;
   }
 
-  // .resume {
-  //   display: flex;
-  //   flex-direction: column;
-  //   gap: unset;
-
-  //   > :nth-child(2) {
-  //     padding-top: 4.5rem;
-  //   }
-  // }
+  html {
+    background-color: var(--color-paper-background);
+  }
 
   // .sidebar-part {
   //   color: color-contrast($colors, primary-muted);
@@ -151,6 +145,12 @@ address {
   // .content {
   //   padding: 1rem 0.5rem;
   // }
+}
+
+@media screen and (max-width: $small-large-break) and (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--color-dark-paper-background);
+  }
 }
 
 // @media screen and (max-width: 22rem) {

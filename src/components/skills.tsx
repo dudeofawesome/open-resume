@@ -3,11 +3,11 @@ import { FC, ReactElement } from 'react';
 import styles from './sidebar.module.scss';
 import { ResumeData } from '../data';
 
-export const Skills: FC<ResumeData> = props => {
+export const Skills: FC<ResumeData & { className?: string }> = props => {
   const sections: ReactElement[] = [];
   if (props.skills != null) {
     sections.push(
-      <section className={styles.skills}>
+      <section className={[styles.skills, props.className].join(' ')}>
         <header>Skills / Tools</header>
         <ul>
           {props.skills?.map((skill, i) => {
@@ -30,7 +30,7 @@ export const Skills: FC<ResumeData> = props => {
 
   if (props.languages != null)
     sections.push(
-      <section className={styles.skills}>
+      <section className={[styles.skills, props.className].join(' ')}>
         <header>Languages</header>
         <ul>
           {props.languages?.map((lang, i) =>
@@ -51,7 +51,7 @@ export const Skills: FC<ResumeData> = props => {
 
   if (props.education != null)
     sections.push(
-      <section className={styles.education}>
+      <section className={[styles.education, props.className].join(' ')}>
         <header>Education</header>
         <ul>
           {props.education?.map((ed, i) => (

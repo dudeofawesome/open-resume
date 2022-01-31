@@ -10,7 +10,7 @@ export const Content: FC<ResumeData> = props => {
         <section key={i}>
           <header>{section.title}</header>
 
-          <ul>
+          <ul className={styles.section_list}>
             {section.items.map((item, i) => (
               <li key={i} className={styles.item}>
                 <div className={styles.title_line}>
@@ -39,9 +39,7 @@ export const Content: FC<ResumeData> = props => {
         </section>
       ))}
 
-      <div className="small-screen-only">
-        <Skills {...props} />
-      </div>
+      <Skills className="small-screen-only" {...props} />
     </div>
   );
 };

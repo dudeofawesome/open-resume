@@ -1,12 +1,18 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, RefObject } from 'react';
 import { Icon } from '@mdi/react';
 import { mdiHome, mdiEmail, mdiPhone, mdiEarth, mdiGithub } from '@mdi/js';
 
 import styles from './sidebar.module.scss';
-import { ResumeData } from '../data';
+import { data, ResumeData } from '../data';
+import Package from '../../package.json';
 import { Skills } from './';
 
-export const Sidebar: FC<ResumeData> = props => {
+export const Sidebar: FC<
+  ResumeData & { info_ref: RefObject<HTMLDivElement> }
+> = props => {
+  const gh_prof = data.about.profiles?.find(p => p.network === 'github');
+  const build_date = new Date().toISOString().split('T')[0];
+
   return (
     <>
       <div
@@ -27,7 +33,7 @@ export const Sidebar: FC<ResumeData> = props => {
         )}
         {props.about.phone && (
           <div className={styles.phone}>
-            <a href="tel:+{{header.phone_clean}}">{props.about.phone}</a>
+            <a href={`tel:+${props.about.phone}`}>{props.about.phone}</a>
             <Icon size={1} path={mdiPhone} />
           </div>
         )}
@@ -46,29 +52,32 @@ export const Sidebar: FC<ResumeData> = props => {
       </div>
       <div
         key={1}
+        ref={props.info_ref}
         className={[styles.sidebar_info, styles.sidebar_part].join(' ')}
       >
         <div className="large-screen-only">
           <Skills {...props} />
         </div>
 
-        {/* <div className="footer">
-          <div className="buttons">
+        <div className={styles.footer}>
+          {/* <div className="buttons">
             <button onclick="window.pdfPrint()" className="icon-only">
               <i className="mdi mdi-printer">printer</i>
             </button>
+          </div> */}
+          <div className={styles.version}>
+            {gh_prof != null ? (
+              <>
+                <a href={`${gh_prof.url}/releases/tag/v${Package.version}`}>
+                  v{Package.version}
+                </a>
+              </>
+            ) : (
+              `v${Package.version}`
+            )}
+            &nbsp;-&nbsp;{build_date}
           </div>
-          <div className="version">
-            {{#header.github_username}}
-            <a href="https://github.com/{{header.github_username}}/{{package.name}}/releases/tag/v{{& package.version}}"
-              name="GitHub Résumé">v{{package.version}}</a>
-            - {{date}}
-            {{/header.github_username}}
-            {{^header.github_username}}
-            v{{package.version}} - {{date}}
-            {{/header.github_username}}
-          </div>
-        </div> */}
+        </div>
       </div>
       <div
         key={2}

@@ -71,3 +71,15 @@
     @include shadow-depth(3);
   }
 }
+
+@media screen and (max-width: $small-large-break) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: unset;
+
+    > :nth-child(2) {
+      padding-top: 4.5rem;
+    }
+  }
+}

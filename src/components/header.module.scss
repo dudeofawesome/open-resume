@@ -1,6 +1,22 @@
+@import '../styles/functions';
+@import '../styles/variables';
+
 .header {
   grid-column: 2;
   grid-row: 2;
+
+  transform-origin: center top;
+
+  &.small_header {
+    left: -1rem;
+    right: -1rem;
+
+    border-bottom: solid var(--color-primary) 1rem;
+
+    @include shadow-depth(3);
+
+    transition: box-shadow $transition-speed;
+  }
 }
 
 .name {
@@ -11,7 +27,7 @@
   line-height: 83%;
 
   &,
-  &.name-container {
+  &.name_container {
     transform-origin: center top;
     margin-bottom: 1rem;
 
@@ -28,5 +44,24 @@
 @media screen and (prefers-color-scheme: dark) {
   .header {
     color: var(--color-dark-text);
+  }
+}
+
+@media screen and (max-width: $small-large-break) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 1rem 0;
+    z-index: 2;
+    text-align: center;
+    color: var(--color-dark-text);
+    background-color: var(--color-primary-muted);
+
+    .name {
+      margin-bottom: unset;
+    }
   }
 }
