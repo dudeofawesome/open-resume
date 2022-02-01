@@ -68,7 +68,9 @@ export const Sidebar: FC<
           <div className={styles.version}>
             {gh_prof != null ? (
               <>
-                <a href={`${gh_prof.url}/releases/tag/v${Package.version}`}>
+                <a
+                  href={`${gh_prof.url}/${Package.name}/releases/tag/v${Package.version}`}
+                >
                   v{Package.version}
                 </a>
               </>
