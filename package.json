@@ -1,7 +1,7 @@
 {
   "name": "resume",
   "description": "A resume website generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "repository": "https://github.com/dudeofawesome/resume.git",
   "author": {
