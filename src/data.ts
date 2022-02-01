@@ -310,6 +310,9 @@ export type Skill =
       /**
        * Whether the skill should be featured. Typically, this will be seen as
        * the text being bold or otherwise highlighted
+       * @default false
        */
-      featured: boolean;
+      featured?: boolean;
+      /** A URL to a demonstration of the skill */
+      link?: string;
     };

@@ -1,50 +1,42 @@
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 
-import styles from './sidebar.module.scss';
 import { ResumeData } from '../data';
+import styles from './sidebar.module.scss';
 
 export const Skills: FC<ResumeData & { className?: string }> = props => {
   return (
     <>
-      {props.skills != null && (
-        <section className={[styles.skills, props.className].join(' ')}>
-          <header>Skills / Tools</header>
-          <ul>
-            {props.skills?.map((skill, i) => {
-              const is_string = typeof skill === 'string';
-              return (
-                <li
-                  key={i}
-                  style={{
-                    fontWeight: !is_string && skill.featured ? 'bold' : 'unset',
-                  }}
-                >
-                  {is_string ? skill : skill.name}
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      )}
-      {props.languages != null && (
-        <section className={[styles.skills, props.className].join(' ')}>
-          <header>Languages</header>
-          <ul>
-            {props.languages?.map((lang, i) =>
-              typeof lang === 'string' ? (
-                <li key={i}>{lang}</li>
-              ) : (
-                <li
-                  key={i}
-                  style={{ fontWeight: lang.featured ? 'bold' : 'unset' }}
-                >
-                  {lang.name}
-                </li>
-              ),
-            )}
-          </ul>
-        </section>
-      )}
+      {[
+        { name: 'Skills / Tools', list: props.skills },
+        { name: 'Languages', list: props.languages },
+      ]
+        .filter(s => s != null)
+        .map((set, i) => (
+          <section
+            key={i}
+            className={[styles.skills, props.className].join(' ')}
+          >
+            <header>{set.name}</header>
+            <ul>
+              {set.list?.map((skill, i) => {
+                const is_string = typeof skill === 'string';
+                const style = {
+                  fontWeight: !is_string && skill.featured ? 'bold' : 'unset',
+                };
+                const name = is_string ? skill : skill.name;
+                return (
+                  <li key={i} style={style}>
+                    {!is_string && skill.link ? (
+                      <a href={skill.link}>{name}</a>
+                    ) : (
+                      <>{name}</>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
       {props.education != null && (
         <section className={[styles.education, props.className].join(' ')}>
           <header>Education</header>
