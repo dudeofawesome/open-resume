@@ -77,18 +77,6 @@
 
   line-height: 140%;
 
-  .education {
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .title {
-      font-weight: 600;
-    }
-  }
-
   section {
     &.skills,
     &.languages {
@@ -169,6 +157,18 @@
         content: '';
       }
     }
+  }
+}
+
+.education {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title {
+    font-weight: 600;
   }
 }
 
