@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-export function usePrintEvent(callback: () => void) {
+export function usePrintEvent(callback: (ev: KeyboardEvent) => void) {
   useEffect(() => {
     function on_keydown(ev: KeyboardEvent) {
       if ((ev.ctrlKey || ev.metaKey) && ev.key === 'p') {
         ev.preventDefault();
-        callback();
+        callback(ev);
       }
     }
 

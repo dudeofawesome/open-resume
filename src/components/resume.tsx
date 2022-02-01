@@ -8,21 +8,14 @@ import styles from '../styles/Home.module.scss';
 export const Resume: FC<ResumeData> = props => {
   const info_ref = useRef<HTMLDivElement>(null);
 
-  usePrintEvent(() => {
-    const iframe = document.createElement('iframe');
-    iframe.style.visibility = 'hidden';
-    iframe.src = `/Louis Orleans' Résumé.pdf`;
-    document.body.appendChild(iframe);
-
-    function load() {
-      iframe.contentWindow?.focus();
-      iframe.contentWindow?.print();
-      setTimeout(() => {
-        iframe.removeEventListener('load', load);
-        document.body.removeChild(iframe);
-      }, 1000);
-    }
-    iframe.addEventListener('load', load);
+  usePrintEvent(ev => {
+    const anchor = document.createElement('a');
+    anchor.style.visibility = 'hidden';
+    anchor.href = `/Louis Orleans' Résumé.pdf`;
+    anchor.download = `Louis Orleans' Résumé.pdf`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
   });
 
   return (
