@@ -18,18 +18,18 @@ export const Header: FC<
 
   const name = name_ref.current?.getBoundingClientRect();
   const info = props.info_ref.current?.getBoundingClientRect();
-  const borderWidth = useMemo(
+  const border_width = useMemo(
     () =>
       props.info_ref.current != null
         ? parseInt(
             window.getComputedStyle(props.info_ref.current).borderBottomWidth,
           )
-        : 0,
+        : 8,
     [props.info_ref],
   );
 
   const is_scrolled_down =
-    (info?.bottom ?? 0) <= (name?.bottom ?? 0) + borderWidth * 2;
+    (info?.bottom ?? 0) / 2 <= (name?.bottom ?? 0) - border_width * 0.75;
 
   return (
     <header
