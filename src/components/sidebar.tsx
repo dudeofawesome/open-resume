@@ -1,11 +1,18 @@
 import { FC, ReactElement, RefObject } from 'react';
 import { Icon } from '@mdi/react';
-import { mdiHome, mdiEmail, mdiPhone, mdiEarth, mdiGithub } from '@mdi/js';
+import {
+  mdiHome,
+  mdiEmail,
+  mdiPhone,
+  mdiEarth,
+  mdiGithub,
+  mdiDownload,
+} from '@mdi/js';
 
 import styles from './sidebar.module.scss';
 import { data, ResumeData } from '../data';
 import Package from '../../package.json';
-import { Skills } from './';
+import { Skills, download_pdf } from './';
 
 export const Sidebar: FC<
   ResumeData & { info_ref: RefObject<HTMLDivElement> }
@@ -60,11 +67,13 @@ export const Sidebar: FC<
         </div>
 
         <div className={styles.footer}>
-          {/* <div className="buttons">
-            <button onclick="window.pdfPrint()" className="icon-only">
-              <i className="mdi mdi-printer">printer</i>
-            </button>
-          </div> */}
+          <button
+            onClick={() => download_pdf()}
+            className={[styles.icon_button, 'no-print'].join(' ')}
+            style={{ marginBottom: '0.5rem', marginRight: '0.25rem' }}
+          >
+            <Icon size={1} path={mdiDownload} />
+          </button>
           <div className={styles.version}>
             {gh_prof != null ? (
               <>

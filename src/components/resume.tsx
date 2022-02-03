@@ -8,15 +8,7 @@ import styles from '../styles/Home.module.scss';
 export const Resume: FC<ResumeData> = props => {
   const info_ref = useRef<HTMLDivElement>(null);
 
-  usePrintEvent(ev => {
-    const anchor = document.createElement('a');
-    anchor.style.visibility = 'hidden';
-    anchor.href = `/Louis Orleans' Résumé.pdf`;
-    anchor.download = `Louis Orleans' Résumé.pdf`;
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-  });
+  usePrintEvent(ev => download_pdf());
 
   return (
     <main className={styles.main}>
@@ -26,3 +18,13 @@ export const Resume: FC<ResumeData> = props => {
     </main>
   );
 };
+
+export function download_pdf() {
+  const anchor = document.createElement('a');
+  anchor.style.visibility = 'hidden';
+  anchor.href = `/Louis Orleans' Résumé.pdf`;
+  anchor.download = `Louis Orleans' Résumé.pdf`;
+  document.body.appendChild(anchor);
+  anchor.click();
+  document.body.removeChild(anchor);
+}
