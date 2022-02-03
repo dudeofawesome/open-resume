@@ -205,18 +205,54 @@ export const data: ResumeData = {
     { name: '3D Printing', featured: true },
   ],
   languages: [
-    { name: 'TypeScript', featured: true },
-    'JavaScript',
-    { name: 'Dart', featured: true },
+    {
+      name: 'TypeScript',
+      featured: true,
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=typescript',
+    },
+    {
+      name: 'JavaScript',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=javascript',
+    },
+    {
+      name: 'Dart',
+      featured: true,
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=dart',
+    },
     'SASS',
-    { name: 'Ruby', featured: true },
-    'Go',
-    'Bash',
-    'Java',
-    'Python',
-    'Swift',
-    'C++',
-    'C#',
+    {
+      name: 'Ruby',
+      featured: true,
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=ruby',
+    },
+    {
+      name: 'Go',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=go',
+    },
+    {
+      name: 'Bash',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=shell',
+    },
+    {
+      name: 'Java',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=java',
+    },
+    {
+      name: 'Python',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=python',
+    },
+    {
+      name: 'Swift',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=swift',
+    },
+    {
+      name: 'C++',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=c%2B%2B',
+    },
+    {
+      name: 'C#',
+      link: 'https://github.com/dudeofawesome?tab=repositories&language=c%23',
+    },
     'SQL',
   ],
 };
