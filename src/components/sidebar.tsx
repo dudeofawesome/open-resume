@@ -80,6 +80,7 @@ export const Sidebar: FC<
                 <a
                   href={`${gh_prof.url}/${Package.name}/releases/tag/v${Package.version}`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   v{Package.version}
                 </a>
