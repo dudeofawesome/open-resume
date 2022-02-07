@@ -193,6 +193,7 @@ export const data: ResumeData = {
     'Embedded Systems',
     'CI',
     'CD',
+    'Electron',
     'Android',
     'Unity3D',
     'PostgreSQL',
