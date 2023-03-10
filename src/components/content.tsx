@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { data, ResumeData } from '../data';
+import { ResumeData } from '../data';
 import { Skills, VerySimpleMD } from './';
 import styles from './content.module.scss';
 
 export const Content: FC<ResumeData> = props => {
   return (
     <div className={styles.content}>
-      {data.sections.map((section, i) => (
+      {props.sections.map((section, i) => (
         <section key={i}>
           <header>{section.title}</header>
 
