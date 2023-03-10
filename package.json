@@ -1,15 +1,21 @@
 {
-  "name": "resume",
+  "name": "@dudeofawesome/open-resume",
   "description": "A resume website generator",
-  "version": "1.0.5",
+  "version": "0.0.1",
   "license": "MIT",
-  "repository": "https://github.com/dudeofawesome/resume.git",
   "author": {
     "name": "Louis Orleans",
     "email": "louis@orleans.io",
     "url": "https://orleans.io"
   },
-  "private": true,
+  "homepage": "https://github.com/dudeofawesome/open-resume#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dudeofawesome/open-resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dudeofawesome/open-resume/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
