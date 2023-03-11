@@ -1,4 +1,5 @@
 import { FC, ReactElement, RefObject } from 'react';
+import React from 'react';
 import { Icon } from '@mdi/react';
 import {
   mdiHome,
@@ -10,14 +11,13 @@ import {
 } from '@mdi/js';
 
 import styles from './sidebar.module.scss';
-import { data, ResumeData } from '../data';
-import Package from '../../package.json';
+import { ResumeData } from '../data';
 import { Skills, download_pdf } from './';
 
 export const Sidebar: FC<
   ResumeData & { info_ref: RefObject<HTMLDivElement> }
 > = props => {
-  const gh_prof = data.about.profiles?.find(p => p.network === 'github');
+  const gh_prof = props.about.profiles?.find(p => p.network === 'github');
   const build_date = process.env.build_time?.split('T')[0] ?? 'Unknown Time';
 
   return (
@@ -78,15 +78,15 @@ export const Sidebar: FC<
             {gh_prof != null ? (
               <>
                 <a
-                  href={`${gh_prof.url}/${Package.name}/releases/tag/v${Package.version}`}
+                  href={`${gh_prof.url}/${props.package.name}/releases/tag/v${props.package.version}`}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  v{Package.version}
+                  v{props.package.version}
                 </a>
               </>
             ) : (
-              `v${Package.version}`
+              `v${props.package.version}`
             )}
             &nbsp;-&nbsp;{build_date}
           </div>

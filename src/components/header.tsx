@@ -1,4 +1,5 @@
 import { FC, RefObject, useMemo, useRef } from 'react';
+import React from 'react';
 
 import { ResumeData } from '../data';
 import { useMediaQuery, useScrollPos } from '../hooks';

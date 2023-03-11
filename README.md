@@ -7,6 +7,7 @@
 1. Install dependencies
     ```bash
     $ npm install
+    $ npm link ../resume/node_modules/react
     ```
 1. Build website
     ```bash

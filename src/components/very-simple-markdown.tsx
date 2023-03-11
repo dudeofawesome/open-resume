@@ -1,5 +1,5 @@
 import { CSSProperties, FC, useMemo } from 'react';
-import styles from './header.module.scss';
+import React from 'react';
 
 /**
  * A **VERY** simple Markdown parser.

@@ -1,0 +1,29 @@
+@import '../styles/variables';
+
+.main {
+  display: grid;
+  grid-template-columns: 12rem auto 0;
+  grid-template-rows: 2rem auto auto 0;
+  gap: 1rem 0.5rem;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  margin: 0;
+
+  background-color: var(--color-paper-background);
+
+  font-size: 0.85rem;
+
+  > header {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  > .content {
+    grid-column: 2;
+    grid-row: 3;
+  }
+}

@@ -1,9 +1,10 @@
 import { FC, useRef } from 'react';
+import React from 'react';
 
 import { Content, Header, Sidebar } from './';
 import { usePrintEvent } from '../hooks';
 import { ResumeData } from '../data';
-import styles from '../styles/Home.module.scss';
+import styles from './resume.module.scss';
 
 export const Resume: FC<ResumeData> = props => {
   const info_ref = useRef<HTMLDivElement>(null);

@@ -1,4 +1,8 @@
 export interface ResumeData {
+  package: {
+    name: string;
+    version: string;
+  };
   theme: {
     colors: {
       primary: string;
