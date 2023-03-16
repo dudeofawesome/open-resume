@@ -18,8 +18,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node esbuild.mjs & tsc & wait",
-    "watch": "node --watch esbuild.mjs --watch & tsc --watch",
+    "build": "node esbuild.mjs & tsc & npx sass src/styles/globals.scss build/globals.css & wait",
+    "watch": "node --watch esbuild.mjs --watch & tsc --watch & npx sass --watch src/styles/globals.scss build/globals.css",
     "lint": "eslint .",
     "test": "jest",
     "test:watch": "jest --watch"
