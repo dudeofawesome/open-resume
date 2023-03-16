@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "node esbuild.mjs & tsc & wait",
-    "watch": "node --watch esbuild.mjs & tsc --watch",
+    "watch": "node --watch esbuild.mjs --watch & tsc --watch",
     "lint": "eslint .",
     "test": "jest",
     "test:watch": "jest --watch"
