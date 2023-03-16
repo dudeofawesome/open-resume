@@ -77,3 +77,45 @@ address {
     background-color: unset;
   }
 }
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+
+  .no-print {
+    display: initial;
+    display: unset;
+  }
+}
+
+@media screen and (min-width: $small-large-break) {
+  .large-screen-only {
+    display: unset;
+  }
+
+  .small-screen-only {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $small-large-break) {
+  .large-screen-only {
+    display: none;
+  }
+
+  .small-screen-only {
+    display: unset;
+  }
+}
+
+@media print {
+  .print-only {
+    display: initial;
+    display: unset;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
