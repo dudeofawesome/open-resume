@@ -42,7 +42,7 @@ export const Content: FC<ResumeData> = props => {
       ))}
 
       <Skills
-        className={['small-screen-only', 'no-print'].join(' ')}
+        className={[styles.small_screen_only, styles.no_print].join(' ')}
         {...props}
       />
     </div>

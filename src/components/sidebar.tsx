@@ -69,7 +69,7 @@ export const Sidebar: FC<
         <div className={styles.footer}>
           <button
             onClick={() => download_pdf()}
-            className={[styles.icon_button, 'no-print'].join(' ')}
+            className={[styles.icon_button, styles.no_print].join(' ')}
             style={{ marginBottom: '0.5rem', marginRight: '0.25rem' }}
           >
             <Icon size={1} path={mdiDownload} />

@@ -45,12 +45,6 @@ address {
   font-style: normal;
 }
 
-@media screen {
-  .print-only {
-    display: none !important;
-  }
-}
-
 @media screen and (prefers-color-scheme: dark) {
   html {
     background-color: var(--colors-background-dark);
@@ -58,30 +52,6 @@ address {
 
   a:hover {
     color: var(--color-dark-text-dim);
-  }
-}
-
-@media screen and (min-width: $small-large-break) {
-  .large-screen-only {
-    display: unset;
-  }
-
-  .small-screen-only {
-    display: none;
-  }
-}
-
-@media screen and (max-width: $small-large-break) {
-  .large-screen-only {
-    display: none;
-  }
-
-  .small-screen-only {
-    display: unset;
-  }
-
-  html {
-    background-color: var(--color-paper-background);
   }
 }
 
@@ -105,14 +75,5 @@ address {
   html,
   body {
     background-color: unset;
-  }
-
-  .print-only {
-    display: initial;
-    display: unset;
-  }
-
-  .no-print {
-    display: none;
   }
 }
