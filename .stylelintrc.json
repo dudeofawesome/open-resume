@@ -1,0 +1,3 @@
+{
+  "extends": ["@dudeofawesome/code-style/.stylelintrc.json"]
+}

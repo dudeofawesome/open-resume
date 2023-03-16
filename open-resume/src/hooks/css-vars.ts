@@ -27,5 +27,18 @@ export function useCSSVars(data: ResumeData) {
       );
     if (c.dark_background != null)
       style.setProperty('--color-dark-background', c.dark_background);
+
+    return () => {
+      style.removeProperty('--color-primary');
+      style.removeProperty('--color-primary-muted');
+      style.removeProperty('--color-text');
+      style.removeProperty('--color-text-dim');
+      style.removeProperty('--color-paper-background');
+      style.removeProperty('--color-background');
+      style.removeProperty('--color-dark-text');
+      style.removeProperty('--color-dark-text-dim');
+      style.removeProperty('--color-dark-paper-background');
+      style.removeProperty('--color-dark-background');
+    };
   }, [data.theme.colors]);
 }

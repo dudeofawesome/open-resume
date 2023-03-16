@@ -1,0 +1,50 @@
+{
+  "name": "example",
+  "description": "open-resume example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Louis Orleans",
+    "email": "louis@orleans.io",
+    "url": "https://orleans.io"
+  },
+  "keywords": [
+    "resume",
+    "open-resume"
+  ],
+  "homepage": "https://github.com/dudeofawesome/open-resume#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dudeofawesome/open-resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dudeofawesome/open-resume/issues"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "render-pdf": "scripts/cd/render-pdf.rb",
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@dudeofawesome/open-resume": "*",
+    "common-tags": "^1.8.2",
+    "next": "12.0.9",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@dudeofawesome/code-style": "^0.1.1",
+    "@dudeofawesome/eslint-config-typescript": "^0.1.1",
+    "@types/common-tags": "^1.8.1",
+    "@types/node": "^18.11.18",
+    "@types/react": "17.0.38",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.9.5"
+  }
+}

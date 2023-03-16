@@ -1,17 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp/
 .pnp.js
 
 # testing
-/coverage
+coverage/
 
 # build
-/out/
-/build
-/public/*.pdf
+out/
+build/
+public/*.pdf
 
 # misc
 .DS_Store
@@ -28,8 +28,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# vercel
-.vercel
+# NextJS
+.vercel/
+.next/
 
 # typescript
 *.tsbuildinfo
