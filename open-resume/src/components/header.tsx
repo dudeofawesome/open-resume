@@ -7,7 +7,7 @@ import styles from './header.module.scss';
 
 export const Header: FC<
   ResumeData & { info_ref: RefObject<HTMLDivElement> }
-> = props => {
+> = (props) => {
   const name_ref = useRef<HTMLDivElement>(null);
 
   const is_small_screen = useMediaQuery('screen and (max-width: 35rem)');

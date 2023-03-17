@@ -5,7 +5,7 @@ import { ResumeData } from '../data';
 import { Skills, VerySimpleMD } from './';
 import styles from './content.module.scss';
 
-export const Content: FC<ResumeData> = props => {
+export const Content: FC<ResumeData> = (props) => {
   return (
     <div className={styles.content}>
       {props.sections.map((section, i) => (

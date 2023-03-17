@@ -4,14 +4,14 @@ import React from 'react';
 import { ResumeData } from '../data';
 import styles from './sidebar.module.scss';
 
-export const Skills: FC<ResumeData & { className?: string }> = props => {
+export const Skills: FC<ResumeData & { className?: string }> = (props) => {
   return (
     <>
       {[
         { name: 'Skills / Tools', list: props.skills },
         { name: 'Languages', list: props.languages },
       ]
-        .filter(s => s != null)
+        .filter((s) => s != null)
         .map((set, i) => (
           <section
             key={i}

@@ -6,10 +6,10 @@ import { usePrintEvent } from '../hooks';
 import { ResumeData } from '../data';
 import styles from './resume.module.scss';
 
-export const Resume: FC<ResumeData> = props => {
+export const Resume: FC<ResumeData> = (props) => {
   const info_ref = useRef<HTMLDivElement>(null);
 
-  usePrintEvent(ev => download_pdf());
+  usePrintEvent((ev) => download_pdf());
 
   return (
     <main className={styles.main}>

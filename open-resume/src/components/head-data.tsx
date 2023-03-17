@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { ResumeData } from '../data';
 
-export const HeadData: FC<ResumeData> = props => {
+export const HeadData: FC<ResumeData> = (props) => {
   const title = `${props.about.name} Résumé`;
 
   return (
