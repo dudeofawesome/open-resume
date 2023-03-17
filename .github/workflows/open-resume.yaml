@@ -23,7 +23,7 @@ jobs:
           cache-dependency-path: 'package-lock.json'
 
       - name: 'Install node modules 📥'
-        uses: 'dudeofawesome/npm-install@master'
+        uses: 'dudeofawesome/npm-install@main'
 
       - name: 'Build 🏗'
         run: 'npm run build --workspace=open-resume'
