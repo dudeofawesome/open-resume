@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import React from 'react';
 
-import '@dudeofawesome/open-resume/build/globals.css';
+import '@dudeofawesome/open-resume/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;

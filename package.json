@@ -21,13 +21,15 @@
   ],
   "workspaces": [
     "example",
-    "open-resume"
+    "open-resume",
+    "open-resume/build"
   ],
   "scripts": {
     "dev": "npm run watch -w open-resume & npm run dev -w example"
   },
   "devDependencies": {
     "@dudeofawesome/code-style": "^0.1.1",
-    "@dudeofawesome/eslint-config-typescript": "^0.1.1"
+    "@dudeofawesome/eslint-config-typescript": "^0.1.1",
+    "turbowatch": "^2.0.4"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "name": "@dudeofawesome/open-resume",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": null,
+    "pub": null,
+    "dev": null,
+    "build": null,
+    "build:js": null,
+    "build:css": null,
+    "build:static": null,
+    "watch": null,
+    "lint": null,
+    "test": null,
+    "test:watch": null
+  },
+  "devDependencies": null
+}

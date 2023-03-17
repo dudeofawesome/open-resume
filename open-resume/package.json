@@ -1,5 +1,5 @@
 {
-  "name": "@dudeofawesome/open-resume",
+  "name": "@dudeofawesome/open-resume-src",
   "description": "A resume website generator",
   "version": "0.0.1",
   "license": "MIT",
@@ -18,16 +18,18 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node esbuild.mjs & tsc & npx sass src/styles/globals.scss build/globals.css & wait",
-    "watch": "node --watch esbuild.mjs --watch & tsc --watch & npx sass --watch src/styles/globals.scss build/globals.css",
+    "build": "npm run build:js & npm run build:css & npm run build:static & wait",
+    "build:js": "node esbuild.mjs & tsc & wait",
+    "build:css": "sass src/styles/globals.scss build/globals.css",
+    "build:static": "./scripts/build-static.sh",
+    "watch": "turbowatch",
     "lint": "eslint .",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "rm -rf build/; npm run build",
+    "pub": "npm run prepublishOnly && cd build && npm publish --access public"
   },
   "main": "build/index.js",
-  "engines": {
-    "node": ">=12.22.0"
-  },
   "dependencies": {
     "@mdi/js": "^6.5.95",
     "@mdi/react": "^1.5.0"
@@ -37,8 +39,6 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@dudeofawesome/code-style": "^0.1.1",
-    "@dudeofawesome/eslint-config-typescript": "^0.1.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/node": "17.0.13",
@@ -46,11 +46,8 @@
     "@types/react-dom": "^18.0.11",
     "chrome-headless-render-pdf": "^1.9.0",
     "esbuild": "^0.17.11",
-    "esbuild-sass-plugin": "^2.6.0",
     "esbuild-scss-modules-plugin": "^1.1.1",
-    "eslint": "8.8.0",
     "jest": "^27.4.7",
-    "nodemon": "^2.0.21",
     "sass": "^1.49.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.9.5"
