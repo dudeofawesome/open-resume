@@ -1,0 +1,50 @@
+name: 'Build & Publish open-resume NPM Package'
+
+on:
+  push:
+    paths:
+      - '/open-resume/**'
+
+permissions:
+  contents: 'read'
+
+jobs:
+  publish:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout Repository 🛎️'
+        uses: 'actions/checkout@v3'
+      - name: 'Use Node.js 📗'
+        uses: 'actions/setup-node@v3'
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
+      - name: 'Install node modules 📥'
+        uses: 'dudeofawesome/npm-install'
+
+      - name: 'Build 🏗'
+        run: 'npm run build --workspace=open-resume'
+
+      - uses: 'actions/cache/save@v3'
+        id: 'cache'
+        with:
+          key: "${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}"
+          path: './'
+
+      - name: 'Lint 🚨'
+        working-directory: 'frontend'
+        run: 'npm run lint'
+      - name: 'Test 🧪'
+        working-directory: 'frontend'
+        run: 'npm run test'
+
+      - name: 'Publish to NPM'
+        if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
+        uses: 'JS-DevTools/npm-publish@v1'
+        with:
+          package: 'open-resume/build/package.json'
+          access: 'public'
+          token: '${{ secrets.NPM_AUTH_TOKEN }}'
+          check-version: true
