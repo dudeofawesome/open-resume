@@ -20,7 +20,6 @@ if (process.argv[2] === '--watch' || process.argv[2] === '-w') {
   console.log('watching...');
   await ctx.watch();
 } else {
-  console.log('building...');
   await ctx.rebuild();
   process.exit(0);
 }
