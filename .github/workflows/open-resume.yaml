@@ -3,6 +3,7 @@ name: 'Build & Publish open-resume NPM Package'
 on:
   push:
     paths:
+      - '.github/workflows/open-resume.yaml'
       - '/open-resume/**'
 
 permissions:
