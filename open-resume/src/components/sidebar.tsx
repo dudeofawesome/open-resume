@@ -13,6 +13,15 @@ import styles from './sidebar.module.scss';
 import { ResumeData } from '../data';
 import { Skills, download_pdf } from '.';
 
+function networkToIcon(network: string): ReactElement {
+  switch (network.toLowerCase()) {
+    case 'github':
+      return <Icon size={1} path={mdiGithub} />;
+    default:
+      throw new Error(`Unknown network ${network}`);
+  }
+}
+
 export const Sidebar: FC<
   ResumeData & { info_ref: RefObject<HTMLDivElement> }
 > = (props) => {
@@ -102,12 +111,3 @@ export const Sidebar: FC<
     </>
   );
 };
-
-function networkToIcon(network: string): ReactElement {
-  switch (network.toLowerCase()) {
-    case 'github':
-      return <Icon size={1} path={mdiGithub} />;
-    default:
-      throw new Error(`Unknown network ${network}`);
-  }
-}

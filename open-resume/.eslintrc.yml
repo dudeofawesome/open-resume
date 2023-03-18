@@ -4,3 +4,6 @@ settings:
       extensions: ['.ts', '.tsx']
 ignorePatterns:
   - build/
+rules:
+  'no-process-env': 'off'
+  '@shopify/prefer-early-return': 'off'

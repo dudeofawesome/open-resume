@@ -12,7 +12,7 @@ export const Header: FC<
   const is_small_screen = useMediaQuery('screen and (max-width: 35rem)');
   const { y: scroll_y } = useScrollPos();
 
-  let scroll_percent = Math.max(Math.min(scroll_y / 23, 1), 0);
+  const scroll_percent = Math.max(Math.min(scroll_y / 23, 1), 0);
 
   const scale = Math.cos(scroll_percent * Math.PI) / 4 + 0.75;
 
