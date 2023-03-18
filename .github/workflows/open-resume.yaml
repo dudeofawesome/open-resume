@@ -16,7 +16,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/actions/setup@main'
+        uses: 'dudeofawesome/actions/node-setup@v1'
       - name: 'Build 🏗'
         run: 'npm run build --workspace=open-resume'
 
@@ -26,7 +26,7 @@ jobs:
       - 'build'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/actions/setup@main'
+        uses: 'dudeofawesome/actions/node-setup@v1'
       - name: 'Lint 🚨'
         run: 'npm run lint --workspace=open-resume'
 
@@ -36,7 +36,7 @@ jobs:
       - 'build'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/actions/setup@main'
+        uses: 'dudeofawesome/actions/node-setup@v1'
       - name: 'Test 🧪'
         run: 'npm run test --workspace=open-resume'
 
@@ -48,7 +48,7 @@ jobs:
       - 'test'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/actions/setup@main'
+        uses: 'dudeofawesome/actions/node-setup@v1'
 
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
