@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/open-resume.yaml'
-      - '.github/actions/**'
+      - '/open-resume/**'
       - '/open-resume/**/*'
       - '/*'
 
@@ -16,7 +16,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/open-resume/.github/actions/setup@main'
+        uses: 'dudeofawesome/actions/setup@main'
       - name: 'Build 🏗'
         run: 'npm run build --workspace=open-resume'
 
@@ -26,7 +26,7 @@ jobs:
       - 'build'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/open-resume/.github/actions/setup@main'
+        uses: 'dudeofawesome/actions/setup@main'
       - name: 'Lint 🚨'
         run: 'npm run lint --workspace=open-resume'
 
@@ -36,7 +36,7 @@ jobs:
       - 'build'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/open-resume/.github/actions/setup@main'
+        uses: 'dudeofawesome/actions/setup@main'
       - name: 'Test 🧪'
         run: 'npm run test --workspace=open-resume'
 
@@ -48,7 +48,7 @@ jobs:
       - 'test'
     steps:
       - name: 'Setup 🛎️'
-        uses: 'dudeofawesome/open-resume/.github/actions/setup@main'
+        uses: 'dudeofawesome/actions/setup@main'
 
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
