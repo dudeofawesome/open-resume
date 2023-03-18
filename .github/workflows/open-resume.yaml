@@ -54,4 +54,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: '${{ secrets.NPM_AUTH_TOKEN }}'
         run: |-
+          cat ~/.npmrc
+          npm config list -L global
+          npm config list -L user
+          npm config list -L project
           npm publish -w open-resume
