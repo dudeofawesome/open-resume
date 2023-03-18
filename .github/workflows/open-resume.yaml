@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/open-resume.yaml'
-      - '/open-resume/**'
+      - '/open-resume/*'
       - '/open-resume/**/*'
       - '/*'
 
