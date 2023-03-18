@@ -25,7 +25,7 @@
     "open-resume/build"
   ],
   "scripts": {
-    "dev": "npm run watch -w open-resume & npm run dev -w example"
+    "dev": "npm run build -w open-resume && npm run watch -w open-resume & npm run dev -w example"
   },
   "devDependencies": {
     "@dudeofawesome/code-style": "^0.1.1",
