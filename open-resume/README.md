@@ -1,18 +1,6 @@
-# [Résumé](https://resume.orleans.io) [![release](https://github.com/dudeofawesome/resume/actions/workflows/release.yaml/badge.svg)](https://github.com/dudeofawesome/resume/actions/workflows/release.yaml)
+# [Résumé UI Library](https://resume.orleans.io) [![release](https://github.com/dudeofawesome/open-resume/actions/workflows/open-resume.yaml/badge.svg)](https://github.com/dudeofawesome/open-resume/actions/workflows/open-resume.yaml)
 
 [Louis Orleans' résumé](https://resume.orleans.io)
-
-## Getting started
-
-1. Install dependencies
-    ```bash
-    $ npm install
-    $ npm link ../resume/node_modules/react
-    ```
-1. Build website
-    ```bash
-    $ npm run build
-    ```
 
 ## Building your own résumé
 
