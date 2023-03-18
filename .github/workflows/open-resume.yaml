@@ -10,28 +10,41 @@ permissions:
   contents: 'read'
 
 jobs:
-  publish:
+  build:
     runs-on: 'ubuntu-latest'
     steps:
-      - name: 'Checkout Repository 🛎️'
-        uses: 'actions/checkout@v3'
-      - name: 'Use Node.js 📗'
-        uses: 'actions/setup-node@v3'
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
+      - name: 'Setup 🛎️'
+        uses: './.github/workflows/parts/setup'
 
-      - name: 'Install node modules 📥'
-        uses: 'dudeofawesome/npm-install@v1'
-
-      - name: 'Build 🏗'
-        run: 'npm run build --workspace=open-resume'
-
+  lint:
+    runs-on: 'ubuntu-latest'
+    needs:
+      - 'build'
+    steps:
+      - name: 'Setup 🛎️'
+        uses: './.github/workflows/parts/setup'
       - name: 'Lint 🚨'
         run: 'npm run lint --workspace=open-resume'
+
+  test:
+    runs-on: 'ubuntu-latest'
+    needs:
+      - 'build'
+    steps:
+      - name: 'Setup 🛎️'
+        uses: './.github/workflows/parts/setup'
       - name: 'Test 🧪'
         run: 'npm run test --workspace=open-resume'
+
+  publish:
+    runs-on: 'ubuntu-latest'
+    needs:
+      - 'build'
+      - 'lint'
+      - 'test'
+    steps:
+      - name: 'Setup 🛎️'
+        uses: './.github/workflows/parts/setup'
 
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
