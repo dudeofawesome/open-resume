@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/open-resume.yaml'
-      - '/open-resume/**'
+      - '/open-resume/**/*'
 
 permissions:
   contents: 'read'
@@ -23,7 +23,7 @@ jobs:
           cache-dependency-path: 'package-lock.json'
 
       - name: 'Install node modules 📥'
-        uses: 'dudeofawesome/npm-install@main'
+        uses: 'dudeofawesome/npm-install@v1'
 
       - name: 'Build 🏗'
         run: 'npm run build --workspace=open-resume'
