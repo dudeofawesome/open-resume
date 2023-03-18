@@ -1,5 +1,6 @@
 {
   "name": "@dudeofawesome/open-resume",
+  "private": null,
   "main": "index.js",
   "scripts": {
     "prepublishOnly": null,
