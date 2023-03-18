@@ -50,22 +50,10 @@ jobs:
       - name: 'Setup 🛎️'
         uses: 'dudeofawesome/open-resume/.github/actions/setup@main'
 
-      - run: npm config list --long
-        continue-on-error: true
-      - run: npm config list -L global
-        continue-on-error: true
-      - run: npm config list -L user
-        continue-on-error: true
-      - run: npm config list -L project
-        continue-on-error: true
-      - run: cat /opt/hostedtoolcache/node/18.15.0/x64/etc/npmrc
-        continue-on-error: true
-      - run: cat /home/runner/.npmrc
-        continue-on-error: true
-
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
         env:
           NODE_AUTH_TOKEN: '${{ secrets.NPM_AUTH_TOKEN }}'
         run: |-
-          npm publish -w open-resume
+          cd open-resume
+          npm run pub

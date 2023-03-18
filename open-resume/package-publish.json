@@ -5,6 +5,8 @@
   "scripts": {
     "prepublishOnly": null,
     "publish": null,
+    "prepub": null,
+    "pub": null,
     "dev": null,
     "build": null,
     "build:js": null,

@@ -27,8 +27,8 @@
     "lint": "eslint src types",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "rm -rf build/; npm run build",
-    "publish": "cd build && npm publish --access public"
+    "prepub": "rm -rf build/; npm run build",
+    "pub": "cd build && npm publish --access public"
   },
   "main": "build/index.js",
   "dependencies": {
