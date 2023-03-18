@@ -21,12 +21,13 @@ end
 Dir.mkdir('public') if !Dir.exist?('public')
 
 begin
-  `chrome-headless-render-pdf \
-    --chrome-binary "#{chrome_path}" \
-    --chrome-option '--no-sandbox' \
-    --url "http://localhost:3000" \
-    --no-margins \
-    --pdf "public/Louis Orleans' Résumé.pdf"`
+  `"#{chrome_path}" \
+      --headless \
+      --no-sandbox \
+      --disable-gpu \
+      --no-margins \
+      --print-to-pdf="public/Louis Orleans' Résumé.pdf" \
+      http://localhost:3000`
 rescue StandardError
   throw 'Failed to render PDF!'
 end
