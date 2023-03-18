@@ -31,7 +31,6 @@ jobs:
       - name: 'Lint 🚨'
         run: 'npm run lint --workspace=open-resume'
       - name: 'Test 🧪'
-        working-directory: 'frontend'
         run: 'npm run test --workspace=open-resume'
 
       - name: 'Publish to NPM'
