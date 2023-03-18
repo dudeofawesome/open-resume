@@ -14,7 +14,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - name: 'Setup 🛎️'
-        uses: '${{ github.repository }}@${{ github.sha }}/.github/workflows/parts/setup'
+        uses: '${{ github.repository }}/.github/workflows/parts/setup@${{ github.sha }}'
       - name: 'Build 🏗'
         run: 'npm run build --workspace=open-resume'
 
@@ -24,7 +24,7 @@ jobs:
       - 'build'
     steps:
       - name: 'Setup 🛎️'
-        uses: '${{ github.repository }}@${{ github.sha }}/.github/workflows/parts/setup'
+        uses: '${{ github.repository }}/.github/workflows/parts/setup@${{ github.sha }}'
       - name: 'Lint 🚨'
         run: 'npm run lint --workspace=open-resume'
 
@@ -34,7 +34,7 @@ jobs:
       - 'build'
     steps:
       - name: 'Setup 🛎️'
-        uses: '${{ github.repository }}@${{ github.sha }}/.github/workflows/parts/setup'
+        uses: '${{ github.repository }}/.github/workflows/parts/setup@${{ github.sha }}'
       - name: 'Test 🧪'
         run: 'npm run test --workspace=open-resume'
 
@@ -46,7 +46,7 @@ jobs:
       - 'test'
     steps:
       - name: 'Setup 🛎️'
-        uses: '${{ github.repository }}@${{ github.sha }}/.github/workflows/parts/setup'
+        uses: '${{ github.repository }}/.github/workflows/parts/setup@${{ github.sha }}'
 
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
