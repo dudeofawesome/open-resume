@@ -51,9 +51,7 @@ jobs:
 
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
-        uses: 'JS-DevTools/npm-publish@v1'
-        with:
-          package: 'open-resume/package.json'
-          access: 'public'
-          token: '${{ secrets.NPM_AUTH_TOKEN }}'
-          check-version: true
+        env:
+          NPM_AUTH_TOKEN: '${{ secrets.NPM_AUTH_TOKEN }}'
+        run: |-
+          npm publish -w open-resume
