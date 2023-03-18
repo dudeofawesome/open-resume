@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/open-resume.yaml'
       - '/open-resume/**/*'
+      - '/*'
 
 permissions:
   contents: 'read'
