@@ -53,6 +53,8 @@ jobs:
       - run: npm config list -L global
       - run: npm config list -L user
       - run: npm config list -L project
+      - run: cat /opt/hostedtoolcache/node/18.15.0/x64/etc/npmrc
+      - run: cat /home/runner/.npmrc
 
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
