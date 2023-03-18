@@ -49,13 +49,14 @@ jobs:
       - name: 'Setup 🛎️'
         uses: 'dudeofawesome/open-resume/.github/actions/setup@main'
 
+      - run: npm config list --long
+      - run: npm config list -L global
+      - run: npm config list -L user
+      - run: npm config list -L project
+
       - name: 'Publish to NPM'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
         env:
           NODE_AUTH_TOKEN: '${{ secrets.NPM_AUTH_TOKEN }}'
         run: |-
-          cat ~/.npmrc
-          npm config list -L global
-          npm config list -L user
-          npm config list -L project
           npm publish -w open-resume
