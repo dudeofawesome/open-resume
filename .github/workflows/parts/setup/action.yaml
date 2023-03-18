@@ -15,6 +15,3 @@ runs:
 
     - name: 'Install node modules 📥'
       uses: 'dudeofawesome/npm-install@v1'
-
-    - name: 'Build 🏗'
-      run: 'npm run build --workspace=open-resume'
