@@ -1,0 +1,73 @@
+name: 'Build and Deploy Webpage'
+on:
+  push:
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Setup 🛎️'
+        uses: 'dudeofawesome/actions/setup@main'
+      - name: 'Build 🏗'
+        run: 'NODE_ENV=production npm run build'
+
+  lint:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Setup 🛎️'
+        uses: 'dudeofawesome/actions/setup@main'
+      - name: 'Lint 🚨'
+        run: 'npm run lint'
+
+  test:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Setup 🛎️'
+        uses: 'dudeofawesome/actions/setup@main'
+      - name: 'Test 🧪'
+        run: 'npm run test'
+
+  export:
+    runs-on: 'ubuntu-latest'
+    environment:
+      name: 'github-pages'
+      url: '${{ steps.deployment.outputs.page_url }}'
+    needs:
+      - 'build'
+    steps:
+      - name: 'Install Chrome ➕'
+        uses: 'browser-actions/setup-chrome@latest'
+      - name: 'Setup 🛎️'
+        uses: 'dudeofawesome/actions/setup@main'
+
+      - name: 'Build 🏗'
+        run: 'NODE_ENV=production npm run build'
+      - name: 'Render PDF 🖨️'
+        run: 'npm run render-pdf'
+      - name: 'Export 🧱'
+        run: 'npm run export'
+
+      - name: 'Add nojekyll file 💩'
+        run: 'touch "out/.nojekyll"' # fixes missing style
+
+      - name: 'Upload artifact 🧩'
+        uses: 'actions/upload-pages-artifact@v1'
+        with:
+          path: './out'
+
+  deploy:
+    environment:
+      name: 'github-pages'
+      url: '${{ steps.deployment.outputs.page_url }}'
+    runs-on: 'ubuntu-latest'
+    needs:
+      - 'lint'
+      - 'test'
+      - 'export'
+    if: '(github.ref_name == github.event.repository.default_branch)'
+    permissions:
+      pages: 'write'
+      id-token: 'write'
+    steps:
+      - name: 'Deploy to GitHub Pages 🚀'
+        id: 'deployment'
+        uses: 'actions/deploy-pages@v1'
