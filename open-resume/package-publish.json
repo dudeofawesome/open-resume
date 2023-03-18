@@ -3,7 +3,7 @@
   "main": "index.js",
   "scripts": {
     "prepublishOnly": null,
-    "pub": null,
+    "publish": null,
     "dev": null,
     "build": null,
     "build:js": null,
