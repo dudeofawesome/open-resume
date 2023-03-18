@@ -2,9 +2,9 @@
 
 puts '[START HTTP SERVER]'
 # @type [IO]
-http_server = IO.popen('npm run start')
+http_server = IO.popen('npm run dev')
 
-while !http_server.gets.include?('ready - started server on')
+while !http_server.gets.include?('compiled client and server successfully')
   sleep 1
 end
 
@@ -21,12 +21,17 @@ end
 Dir.mkdir('public') if !Dir.exist?('public')
 
 begin
-  `chrome-headless-render-pdf --chrome-binary "#{chrome_path}" --chrome-option '--no-sandbox' --url "http://localhost:3000" --pdf "public/Louis Orleans' Résumé.pdf" --no-margins`
-rescue
+  `chrome-headless-render-pdf \
+    --chrome-binary "#{chrome_path}" \
+    --chrome-option '--no-sandbox' \
+    --url "http://localhost:3000" \
+    --no-margins \
+    --pdf "public/Louis Orleans' Résumé.pdf"`
+rescue StandardError
   throw 'Failed to render PDF!'
 end
 
 puts '[STOP HTTP SERVER]'
-Process.kill("TERM", http_server.pid)
+Process.kill('TERM', http_server.pid)
 
 puts '[DONE]'
