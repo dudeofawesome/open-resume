@@ -1,47 +1,4 @@
 import { CSSProperties, FC, useMemo } from 'react';
-import React from 'react';
-
-/**
- * A **VERY** simple Markdown parser.
- *
- * Supports _non-cascading_ bold, italics, and links using a Github flavored
- * Markdown subset.
- *
- * @param md the markdown you want to parse
- */
-export const VerySimpleMD: FC<A> = ({ md }) => {
-  const ast = useMemo<AST>(() => parseSimpleMD(md), [md]);
-
-  return (
-    <>
-      {ast.map((n, i) => (
-        <p key={i}>
-          {Array.isArray(n)
-            ? n.map((l, j) => {
-                const style: CSSProperties = {};
-                if (l.style?.bold) style.fontWeight = 'bold';
-                if (l.style?.italic) style.fontStyle = 'italic';
-
-                if (l.url != null) {
-                  return (
-                    <a key={j} href={l.url} style={style}>
-                      {l.text}
-                    </a>
-                  );
-                } else {
-                  return (
-                    <span key={j} style={style}>
-                      {l.text}
-                    </span>
-                  );
-                }
-              })
-            : n.text}
-        </p>
-      ))}
-    </>
-  );
-};
 
 export function parseSimpleMD(md: string): AST {
   const ast: AST = [];
@@ -123,6 +80,48 @@ export function parseSimpleMD(md: string): AST {
   }
   return ast;
 }
+
+/**
+ * A **VERY** simple Markdown parser.
+ *
+ * Supports _non-cascading_ bold, italics, and links using a Github flavored
+ * Markdown subset.
+ *
+ * @param md the markdown you want to parse
+ */
+export const VerySimpleMD: FC<A> = ({ md }) => {
+  const ast = useMemo<AST>(() => parseSimpleMD(md), [md]);
+
+  return (
+    <>
+      {ast.map((n, i) => (
+        <p key={i}>
+          {Array.isArray(n)
+            ? n.map((l, j) => {
+                const style: CSSProperties = {};
+                if (l.style?.bold) style.fontWeight = 'bold';
+                if (l.style?.italic) style.fontStyle = 'italic';
+
+                if (l.url != null) {
+                  return (
+                    <a key={j} href={l.url} style={style}>
+                      {l.text}
+                    </a>
+                  );
+                } else {
+                  return (
+                    <span key={j} style={style}>
+                      {l.text}
+                    </span>
+                  );
+                }
+              })
+            : n.text}
+        </p>
+      ))}
+    </>
+  );
+};
 
 export interface A {
   md: string;

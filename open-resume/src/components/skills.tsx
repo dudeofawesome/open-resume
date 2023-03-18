@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import React from 'react';
 
 import { ResumeData } from '../data';
 import styles from './sidebar.module.scss';

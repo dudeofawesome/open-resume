@@ -23,7 +23,7 @@
     "build:css": "sass src/styles/globals.scss build/globals.css",
     "build:static": "./scripts/build-static.sh",
     "watch": "turbowatch",
-    "lint": "eslint .",
+    "lint": "eslint src types",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepublishOnly": "rm -rf build/; npm run build",

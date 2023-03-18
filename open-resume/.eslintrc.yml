@@ -1,0 +1,6 @@
+settings:
+  import/resolver:
+    node:
+      extensions: ['.ts', '.tsx']
+ignorePatterns:
+  - build/

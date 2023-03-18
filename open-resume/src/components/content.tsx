@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import React from 'react';
 
 import { ResumeData } from '../data';
-import { Skills, VerySimpleMD } from './';
+import { Skills, VerySimpleMD } from '.';
 import styles from './content.module.scss';
 
 export const Content: FC<ResumeData> = (props) => {

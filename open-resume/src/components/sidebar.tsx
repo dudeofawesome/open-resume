@@ -1,5 +1,4 @@
 import { FC, ReactElement, RefObject } from 'react';
-import React from 'react';
 import { Icon } from '@mdi/react';
 import {
   mdiHome,
@@ -12,7 +11,7 @@ import {
 
 import styles from './sidebar.module.scss';
 import { ResumeData } from '../data';
-import { Skills, download_pdf } from './';
+import { Skills, download_pdf } from '.';
 
 export const Sidebar: FC<
   ResumeData & { info_ref: RefObject<HTMLDivElement> }
