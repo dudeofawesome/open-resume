@@ -31,6 +31,9 @@
     "pub": "cd build && npm publish --access public"
   },
   "main": "build/index.js",
+  "bin": {
+    "render-pdf": "scripts/cd/render-pdf.rb"
+  },
   "dependencies": {
     "@mdi/js": "^6.5.95",
     "@mdi/react": "^1.5.0"
