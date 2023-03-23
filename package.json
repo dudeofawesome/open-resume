@@ -28,7 +28,7 @@
     "dev": "npm run build -w open-resume && npm run watch -w open-resume & npm run dev -w example"
   },
   "devDependencies": {
-    "@dudeofawesome/code-style": "^0.1.1",
-    "@dudeofawesome/eslint-config-typescript": "^0.1.1",
+    "@dudeofawesome/code-style": "^1.0.0",
+    "@dudeofawesome/eslint-config-typescript": "^1.0.0"
   }
 }

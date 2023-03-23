@@ -8,6 +8,8 @@ node_modules/
 /node_modules/@dudeofawesome/open-resume
 /node_modules/@dudeofawesome/open-resume-src
 /node_modules/@dudeofawesome/eslint-config/
+/node_modules/@dudeofawesome/eslint-config-jest/
+/node_modules/@dudeofawesome/eslint-config-node/
 /node_modules/@dudeofawesome/eslint-config-typescript/
 /node_modules/@dudeofawesome/code-style/*
 !/node_modules/@dudeofawesome/code-style/.editorconfig

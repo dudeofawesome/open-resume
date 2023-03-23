@@ -1,9 +1,4 @@
-settings:
-  import/resolver:
-    node:
-      extensions: ['.ts', '.tsx']
+extends:
+  - '@dudeofawesome/jest'
 ignorePatterns:
-  - build/
-rules:
-  'no-process-env': 'off'
-  '@shopify/prefer-early-return': 'off'
+  - 'build/'
