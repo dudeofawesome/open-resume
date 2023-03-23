@@ -76,7 +76,7 @@ export const Sidebar: FC<
 
         <div className={styles.footer}>
           <button
-            onClick={() => download_pdf()}
+            onClick={() => download_pdf(props.about.name)}
             className={[styles.icon_button, 'no-print'].join(' ')}
             style={{ marginBottom: '0.5rem', marginRight: '0.25rem' }}
           >
