@@ -4,9 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/open-resume.yaml'
-      - '/open-resume/*'
-      - '/open-resume/**/*'
-      - '/*'
+      - 'open-resume/**'
+      - '*'
 
 permissions:
   contents: 'read'
@@ -50,7 +49,7 @@ jobs:
       - name: 'Setup 🛎️'
         uses: 'dudeofawesome/actions/node-setup@v1'
 
-      - name: 'Publish to NPM'
+      - name: 'Publish to NPM 🚀'
         if: '${{ github.ref_name }} == ${{ github.event.repository.default_branch }}'
         env:
           NODE_AUTH_TOKEN: '${{ secrets.NPM_AUTH_TOKEN }}'
