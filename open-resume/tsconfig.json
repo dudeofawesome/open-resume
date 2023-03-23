@@ -1,22 +1,8 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "target": "ES2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "incremental": true,
-    "baseUrl": "src",
-    "outDir": "build"
+    "emitDeclarationOnly": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.ts"],
-  "exclude": ["node_modules", "**/*/__tests__/**/*"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["turbowatch.ts"]
 }
