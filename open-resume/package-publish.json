@@ -2,6 +2,9 @@
   "name": "@dudeofawesome/open-resume",
   "private": null,
   "main": "index.js",
+  "bin": {
+    "render-pdf": "scripts/cd/render-pdf.js"
+  },
   "scripts": {
     "prepublishOnly": null,
     "publish": null,

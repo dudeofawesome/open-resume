@@ -17,7 +17,8 @@ export function OpenResumeTriggers(
         'allof',
         [
           'anyof',
-          ['match', `${dir}/esbuild.mjs`, 'wholename'],
+          ['match', `${dir}/scripts/esbuild.mjs`, 'wholename'],
+          ['match', `${dir}/scripts/**/*.ts`, 'wholename'],
           ['match', `${dir}/src/**/*.ts`, 'wholename'],
           ['match', `${dir}/types/**/*.ts`, 'wholename'],
           ['match', `${dir}/src/**/*.tsx`, 'wholename'],

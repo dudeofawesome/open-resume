@@ -30,6 +30,5 @@
   "devDependencies": {
     "@dudeofawesome/code-style": "^0.1.1",
     "@dudeofawesome/eslint-config-typescript": "^0.1.1",
-    "turbowatch": "^2.0.4"
   }
 }

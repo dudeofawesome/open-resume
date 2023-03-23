@@ -5,7 +5,6 @@ mkdir build 2> /dev/null
 
 # copy static files
 cp "README.md" "LICENSE" "build/"
-cp -R "scripts/" "build/scripts"
 
 # rewrite package.json
 jq --slurp \
