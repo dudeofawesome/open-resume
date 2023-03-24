@@ -13,8 +13,6 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": "src",
-    "outDir": "build"
-  },
-  "exclude": ["node_modules", "**/*/__tests__/**/*"]
+    "baseUrl": "src"
+  }
 }

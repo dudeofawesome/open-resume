@@ -1,8 +1,9 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "outDir": "build",
     "emitDeclarationOnly": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["turbowatch.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.ts"],
+  "exclude": ["build/", "**/*/__tests__/**/*"]
 }
