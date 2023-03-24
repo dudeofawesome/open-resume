@@ -2,3 +2,5 @@ extends:
   - '@dudeofawesome/jest'
 ignorePatterns:
   - 'build/'
+rules:
+  'no-process-env': 'off'
