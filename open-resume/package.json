@@ -1,7 +1,7 @@
 {
   "name": "@dudeofawesome/open-resume-src",
   "description": "A resume website generator",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": true,
   "license": "MIT",
   "author": {
