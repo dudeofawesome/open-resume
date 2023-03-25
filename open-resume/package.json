@@ -31,7 +31,7 @@
   },
   "main": "build/index.js",
   "bin": {
-    "render-pdf": "build/scripts/cd/render-pdf.js"
+    "render-pdf": "scripts/cd/render-pdf.ts"
   },
   "dependencies": {
     "@mdi/js": "^6.5.95",

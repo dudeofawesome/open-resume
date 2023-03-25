@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 
-import { exec, spawn } from 'node:child_process';
+import { exec as _exec } from 'node:child_process';
 import { platform } from 'node:os';
 import { readFile, mkdir, readdir } from 'node:fs/promises';
 import { Server } from 'node:http';
+import { promisify } from 'node:util';
 
 import puppeteer from 'puppeteer-core';
 import { createServer } from 'http-server';
 
 import { possess } from '../../src/utils/possess';
+
+const exec = promisify(_exec);
 
 function get_arg(...opt_names: string[]): string | null {
   const index = process.argv.findIndex((arg) => opt_names.includes(arg));
@@ -38,10 +41,11 @@ async function get_name(): Promise<string> {
 
 async function build() {
   await exec(`npm run build`);
+  await exec(`npm run export`);
 }
 
 async function start_server(): Promise<Server> {
-  const server: Server = (createServer({ root: 'build' }) as any).server;
+  const server: Server = (createServer({ root: 'out' }) as any).server;
   server.listen(3100);
 
   server;
@@ -73,7 +77,9 @@ async function generate_pdf(
 
 async function main() {
   await build();
+  console.log('Built site.');
   const server = await start_server();
+  console.log('Started server.');
 
   try {
     await readdir('public');
@@ -83,6 +89,7 @@ async function main() {
 
   try {
     await generate_pdf(`http://localhost:${(server.address() as any)?.port}/`);
+    console.log('Generated PDF.');
   } catch (e) {
     console.error(`Unhandled error rendering PDF!`);
     console.error(e);
