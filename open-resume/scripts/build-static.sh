@@ -3,6 +3,8 @@
 # ensure build dir exists
 mkdir build 2> /dev/null
 
+set -e
+
 # copy static files
 cp "README.md" "LICENSE" "build/"
 

@@ -26,7 +26,7 @@
     "lint": "eslint src types",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepub": "rm -rf build/; npm run build",
+    "prepub": "./scripts/prepub.sh",
     "pub": "cd build && npm publish --access public"
   },
   "main": "build/index.js",
