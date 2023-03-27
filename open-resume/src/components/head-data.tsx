@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
 import { ResumeData } from '../data';
+import { possess } from '../utils/possess';
 
 export const HeadData: FC<ResumeData> = (props) => {
-  const title = `${props.about.name} Résumé`;
+  const title = `${possess(props.about.name)} Résumé`;
 
   return (
     <>
-      <title>{title}</title>
       {props.about.label != null && (
         <meta name="description" content={props.about.label} />
       )}
@@ -23,7 +23,6 @@ export const HeadData: FC<ResumeData> = (props) => {
       <meta property="og:title" content={title} />
       <meta property="og:type" content="profile" />
       <meta property="og:image" content="/icon.svg" />
-      <meta property="og:url" content="https://resume.orleans.io" />
       {props.about.label != null && (
         <meta property="og:description" content={props.about.label} />
       )}
