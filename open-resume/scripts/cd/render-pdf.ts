@@ -13,15 +13,24 @@ import { possess } from '../../src/utils/possess';
 
 const exec = promisify(_exec);
 
-function get_arg(...opt_names: string[]): string | null {
+/**
+ * Gets the value of an CLI argument.
+ * @param opt_names Names to look in `process.argv` for.
+ * @returns Either a boolean indicating the presence of of the argument, or the
+ *    value of the next string after the name.
+ */
+function get_arg(...opt_names: string[]): boolean | string {
   const index = process.argv.findIndex((arg) => opt_names.includes(arg));
-  if (index === -1) return null;
-  else return process.argv[index + 1];
+  if (index === -1) return false;
+  else {
+    if (process.argv[index + 1].startsWith('-')) return true;
+    else return process.argv[index + 1];
+  }
 }
 
-function get_chrome_path() {
+function get_chrome_path(): string {
   const arg = get_arg('--chrome', '-c');
-  if (arg != null) return arg;
+  if (arg != null && typeof arg === 'string') return arg;
 
   switch (platform()) {
     case 'darwin':
@@ -76,10 +85,17 @@ async function generate_pdf(
 }
 
 async function main() {
-  await build();
-  console.log('Built site.');
-  const server = await start_server();
-  console.log('Started server.');
+  let url = get_arg('--url');
+  let server: Server | null = null;
+
+  if (url == null || typeof url !== 'string') {
+    await build();
+    console.log('Built site.');
+
+    server = await start_server();
+    url = `http://localhost:${(server.address() as any)?.port}/`;
+    console.log('Started server.');
+  }
 
   try {
     await readdir('public');
@@ -88,7 +104,7 @@ async function main() {
   }
 
   try {
-    await generate_pdf(`http://localhost:${(server.address() as any)?.port}/`);
+    await generate_pdf(url);
     console.log('Generated PDF.');
   } catch (e) {
     console.error(`Unhandled error rendering PDF!`);
@@ -96,7 +112,7 @@ async function main() {
     process.exit(1);
   }
 
-  server.close();
+  server?.close();
   process.exit(0);
 }
 
