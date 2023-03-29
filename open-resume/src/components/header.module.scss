@@ -22,7 +22,7 @@
 .name {
   font-family: 'Playfair Display', Cambria, Cochin, Times, 'Times New Roman',
     serif;
-  font-size: 3rem;
+  font-size: var(--font-size-name);
   font-weight: 534;
   line-height: 83%;
 

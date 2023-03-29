@@ -17,6 +17,13 @@ export interface ResumeData {
       dark_paper_background?: string;
       dark_background?: string;
     };
+    font?: {
+      sizes?: {
+        name?: string;
+        section_header?: string;
+        body?: string;
+      };
+    };
   };
   about: {
     /** Your full name as it should appear on your resume */

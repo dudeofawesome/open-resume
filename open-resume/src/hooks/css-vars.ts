@@ -6,6 +6,7 @@ export function useCSSVars(data: ResumeData) {
   useEffect(() => {
     const style = document.documentElement.style;
     const c = data.theme.colors;
+    const fs = data.theme.font?.sizes ?? {};
 
     style.setProperty('--color-primary', c.primary ?? '#d20000');
     style.setProperty('--color-primary-muted', c.primary_muted ?? '#920000');
@@ -24,6 +25,13 @@ export function useCSSVars(data: ResumeData) {
       '--color-dark-background',
       c.dark_background ?? '#181a1b',
     );
+
+    style.setProperty('--font-size-name', fs.name ?? '3rem');
+    style.setProperty(
+      '--font-size-section-header',
+      fs.section_header ?? '1.1rem',
+    );
+    style.setProperty('--font-size-body', fs.body ?? '0.85rem');
 
     return () => {
       style.removeProperty('--color-primary');

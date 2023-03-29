@@ -16,7 +16,7 @@
 
   background-color: var(--color-paper-background);
 
-  font-size: 0.85rem;
+  font-size: var(--font-size-body);
 
   > header {
     grid-column: 2;

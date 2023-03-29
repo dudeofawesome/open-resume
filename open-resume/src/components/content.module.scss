@@ -62,7 +62,7 @@
   header {
     margin-bottom: 0.3rem;
 
-    font-size: 1.1rem;
+    font-size: var(--font-size-section-header);
     color: var(--color-primary);
     text-transform: uppercase;
   }
