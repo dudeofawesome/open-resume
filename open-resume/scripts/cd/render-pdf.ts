@@ -78,6 +78,8 @@ async function generate_pdf(
       path: `public/${possess(await get_name())} Résumé.pdf`,
       displayHeaderFooter: false,
       margin: { top: 0, right: 0, bottom: 0, left: 0 },
+      pageRanges: '1',
+      printBackground: true,
     });
   } finally {
     await browser.close();

@@ -27,9 +27,9 @@ export const Skills: FC<ResumeData & { className?: string }> = (props) => {
                 return (
                   <li key={i} style={style}>
                     {!is_string && skill.link ? (
-                      <a href={skill.link}>{name}</a>
+                      <a href={skill.link}> {name} </a>
                     ) : (
-                      <>{name}</>
+                      <>{name} </>
                     )}
                   </li>
                 );
